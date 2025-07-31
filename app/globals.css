@@ -41,8 +41,8 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  --color-button-color: var(--button-color);
-  --color-font-primary: var(--font-primary);
+  --color-primary-color: var(--primary-color);
+  --color-hover-primary-color: var(--primary-color);
 }
 
 body {
@@ -83,8 +83,8 @@ body {
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
-  --button-color: var(--color-fuchsia-500);
-  --font-primary: var(--color-fuchsia-500);
+  --primary-color: oklch(0.695 0.225 256.84);
+  --hover-primary-color : oklch(59.524% 0.14299 250.524);
 }
 
 .dark {
