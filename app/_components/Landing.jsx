@@ -21,7 +21,7 @@ function Landing() {
                 Your next great meal is only a click away.
               </p>
               <div className="mt-4 flex">
-                <Button className="bg-[var(--primary-color)] px-10 py-6 sm:text-1xl hover:bg-[var(--hover-primary-color)]">Explore Now</Button>
+                <Button className="bg-[var(--primary-color)] px-10 py-6 sm:text-1xl hover:bg-[var(--hover-primary-color)] cursor-pointer">Explore Now</Button>
               </div>
             </div>
           </div>

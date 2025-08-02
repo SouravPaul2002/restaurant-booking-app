@@ -43,6 +43,7 @@
   --radius-xl: calc(var(--radius) + 4px);
   --color-primary-color: var(--primary-color);
   --color-hover-primary-color: var(--primary-color);
+  --color-background-primary-color: var(--background-primary-color);
 }
 
 body {
@@ -85,6 +86,7 @@ body {
   --sidebar-ring: oklch(0.708 0 0);
   --primary-color: oklch(0.695 0.225 256.84);
   --hover-primary-color : oklch(59.524% 0.14299 250.524);
+  --background-primary-color : oklch(88.308% 0.00609 240.327);
 }
 
 .dark {

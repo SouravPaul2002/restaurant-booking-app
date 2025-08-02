@@ -1,0 +1,10 @@
+develop API token : 31d361b659b3f6e637835a581c1490e2aa98a8c9313c5519db5a35b15bd5992d6bd7fa9322477bdd7669b89f3ff599438842a0bab4e3d4f4bee2c6dc9be4b388be11607608ab60a60763f67f98c3362af6419c0f84db9f209c122d45802f86c8a289d409c1d1a39f5b0d70fed8933df5ef431e01a1d1917d7d05650641d98592
+
+
+
+restaurant attributes : 
+        Basic  : name , description , address , phone number , email 
+        location : city , zip , country 
+        opening hours : opening time , closing time 
+        food & cuisine : cuisine type , menu items, price range 
+        rating : average rating , number of ratings , user reviews 
