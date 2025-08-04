@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import Image from 'next/image'
 
 import { SearchIcon } from 'lucide-react'
-import GlobalAPI from '../_utils/GlobalAPI'
+import GlobalApi from '../_utils/GlobalApi'
 import Link from 'next/link'
 
 function CategorySearch() {
@@ -16,7 +16,7 @@ function CategorySearch() {
   }, []) //[] empty array is used to called the useEffect hook only one , not every iteration !! 
 
   const getCategoryList = () => {
-    GlobalAPI.getCategory().then(resp => {
+    GlobalApi.getCategory().then(resp => {
       console.log(resp.data.data)
       setcategoryList(resp.data.data);
     })
@@ -36,7 +36,7 @@ function CategorySearch() {
     <div className='grid grid-cols-2 md:grid-cols-5 lg:grid-cols-6 m-5 '>
       {/* display cuisines list  */}
       {categoryList.map((item, index) =>index<6&&(
-        <Link href={`/search/${item.food.toLowerCase().replace(/\s+/g, '-')}`} key={index} className='flex flex-col items-center text-center p-5 bg-[var(--background-primary-color)] m-2 rounded-md hover:scale-105 transition-all ease-in-out cursor-pointer'>
+        <Link href={`/search/${item.food}`} key={index} className='flex flex-col items-center text-center p-5 bg-[var(--background-primary-color)] m-2 rounded-md hover:scale-105 transition-all ease-in-out cursor-pointer'>
           <div className=''><Image src={item.image?.url} alt='cuisine iamge' width={150} height={100} className='rounded-md'/></div>
           <label className='text-center mt-2 text-sm font-medium'>{item.food}</label>
         </Link>

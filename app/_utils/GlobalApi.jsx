@@ -17,7 +17,10 @@ const getCategory=()=>axiosClient.get('/sliders?populate=*');
 
 const getRestaurantList=()=>axiosClient.get('/restaurants?populate=*');
 
+const getRestaurantByCategory=(cuisine)=>axiosClient.get(`/restaurants?filters[cuisines][food][$in]=${cuisine}&populate=*`);
+
 export default{
     getCategory,
-    getRestaurantList
+    getRestaurantList,
+    getRestaurantByCategory
 }

@@ -1,5 +1,5 @@
 "use client"
-import GlobalAPI from '@/app/_utils/GlobalAPI';
+import GlobalApi from '@/app/_utils/GlobalApi';
 import React, { useEffect, useState } from 'react'
 import {
     Command,
@@ -24,7 +24,7 @@ function CategoryList() {
     }, []) //[] empty array is used to called the useEffect hook only one , not every iteration !! 
 
     const getCategoryList = () => {
-        GlobalAPI.getCategory().then(resp => {
+        GlobalApi.getCategory().then(resp => {
             console.log(resp.data.data)
             setcategoryList(resp.data.data);
         })
@@ -38,7 +38,7 @@ function CategoryList() {
                     <CommandGroup heading="Cuisines">
                         {categoryList && categoryList.map((item, index) => (
                             <CommandItem key={index}>
-                                <Link href={'/search/'+item.food.toLowerCase().replace(/\s+/g, '-')} className={`p-2 pr-14 pl-4 rounded-sm hover:scale-105 duration-500 hover:text-black ${cuisine==item.food.toLowerCase().replace(/\s+/g, '-')&&'bg-blue-200'}`}>
+                                <Link href={'/search/'+item.food} className={`p-2 pr-14 pl-4 rounded-sm hover:scale-105 duration-500 hover:text-black ${cuisine==item.food&&'bg-blue-200'}`}>
                                     <label className="cursor-pointer">{item.food}</label>
                                 </Link>
                             </CommandItem>

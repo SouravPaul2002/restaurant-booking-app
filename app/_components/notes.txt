@@ -8,3 +8,40 @@ restaurant attributes :
         opening hours : opening time , closing time 
         food & cuisine : cuisine type , menu items, price range 
         rating : average rating , number of ratings , user reviews 
+
+
+
+
+
+
+
+
+
+
+
+
+page.jsx (app-(route)-search-[cname]-page.jsx)
+
+"use client"
+import GlobalApi from '@/app/_utils/GlobalApi';
+import React, { useEffect } from 'react'
+
+function searchPage({params}) {
+  useEffect(()=>{
+    console.log(params.cname);
+    getRestaurants();
+  },[])
+
+  const getRestaurants=()=>{
+     GlobalApi.getRestaurantByCategory(params.cname).then(resp=>{
+      console.log(resp.data.data);
+     })
+  }
+  return (
+    <div>
+      Search
+    </div>
+  )
+}
+
+export default searchPage

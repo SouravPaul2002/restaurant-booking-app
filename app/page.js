@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import Search from "./_components/CategorySearch";
 import Landing from "./_components/Landing";
 import RestaurantList from "./_components/RestaurantList";
-import GlobalApi from "./_utils/GlobalAPI";
+import GlobalApi from "./_utils/GlobalApi";
 import { useEffect, useState } from "react";
 export default function Home() {
 
