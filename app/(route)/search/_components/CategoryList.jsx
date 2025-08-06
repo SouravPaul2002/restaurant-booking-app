@@ -32,10 +32,10 @@ function CategoryList() {
     return (
         <div className='h-screen mt-5 flex flex-col font-semibold'>
             <Command className="rounded-lg border shadow-md ">
-                <CommandInput placeholder="Type a command or search..." />
+                <CommandInput placeholder="search cuisines..." />
                 <CommandList className="overflow-visible">
                     <CommandEmpty>No results found.</CommandEmpty>
-                    <CommandGroup heading="Cuisines">
+                    <CommandGroup className='cursor-default' heading="Cuisines">
                         {categoryList && categoryList.map((item, index) => (
                             <CommandItem key={index}>
                                 <Link href={'/search/'+item.food} className={`p-2 pr-14 pl-4 rounded-sm hover:scale-105 duration-500 hover:text-black ${cuisine==item.food&&'bg-blue-200'}`}>

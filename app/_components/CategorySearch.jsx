@@ -22,7 +22,7 @@ function CategorySearch() {
     })
   }
 
-  return (<div className='items-center flex flex-col gap-2'>
+  return (<div className='items-center flex flex-col gap-2 px-4'>
     <h2 className='font-bold text-4xl tracking-wide'>
       Search <span className='text-primary-color'>Restaurants</span>
     </h2>

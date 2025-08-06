@@ -19,8 +19,14 @@ const getRestaurantList=()=>axiosClient.get('/restaurants?populate=*');
 
 const getRestaurantByCategory=(cuisine)=>axiosClient.get(`/restaurants?filters[cuisines][food][$in]=${cuisine}&populate=*`);
 
+const getRestaurantBySlug=(slug)=>axiosClient.get(`/restaurants?filters[slug][$eq]=${slug}&populate=*`);
+
+const getMenuItemsByCuisine = (query) =>axiosClient.get(`/menu-items?${query}&populate=*`);
+
 export default{
     getCategory,
     getRestaurantList,
-    getRestaurantByCategory
+    getRestaurantByCategory,
+    getRestaurantBySlug,
+    getMenuItemsByCuisine
 }
