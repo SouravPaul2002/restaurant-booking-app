@@ -2,6 +2,7 @@
 import GlobalApi from '@/app/_utils/GlobalApi'
 import React, { use, useEffect, useState } from 'react'
 import RestaurantDetails from '../_components/RestaurantDetails';
+import RestaurantSuggestion from '../_components/RestaurantSuggestion';
 
 function details({ params }) {
 
@@ -10,9 +11,11 @@ function details({ params }) {
 
   const [restaurant, setrestaurant] = useState(); // to save the fetched restaurant details from url
   const [menuItem, setmenuItem] = useState();
+  const [restaurantList, setrestaurantList] = useState();
 
   useEffect(() => {
-    getRestaurantOneBySlug()
+    getRestaurantOneBySlug(),
+    getAllRestaurantDetails()
   }, [])
 
   const getRestaurantOneBySlug = () => {
@@ -36,6 +39,13 @@ function details({ params }) {
     });
   }
 
+  const getAllRestaurantDetails= ()=>{
+    GlobalApi.getRestaurantList().then(resp =>{
+      console.log(resp.data.data);
+      setrestaurantList(resp.data.data);
+    })
+  }
+
 
   return (
     <div className='p-2 md:px-1'>
@@ -45,7 +55,7 @@ function details({ params }) {
         <div>{restaurant && <RestaurantDetails restaurant={restaurant} menuItem={menuItem} />}</div>
         {/* Restaurant suggestions  */}
         <div >
-          restaurant suggestions part
+          {restaurantList && <RestaurantSuggestion restaurantList={restaurantList} />}
         </div>
       </div>
     </div>

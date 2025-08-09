@@ -10,6 +10,7 @@ import {
     PopoverTrigger,
 } from "@/components/ui/popover"
 
+
 function Header() {
     const menu = [
         {
@@ -39,7 +40,7 @@ function Header() {
 
                 <ul className="md:flex gap-8 hidden">
                     {menu.map((item, index) => (
-                        <Link key={item.name} href={item.path}>
+                        <Link key={index} href={item.path}>
                             <li className="text-lg font-bold hover:text-primary-color cursor-pointer hover:scale-105
                         transition-all ease-in-out">{item.name}</li>
                         </Link>
@@ -52,8 +53,8 @@ function Header() {
                     <PopoverTrigger className='cursor-pointer hover:scale-105'><Image src={user?.picture} alt='profile-picture' width={50} height={50} className='rounded-full' /></PopoverTrigger>
                     <PopoverContent >
                         <ul className='flex flex-col gap-1'>
-                            <li><Button className='text-lg font-semibold cursor-pointer' variant="ghost">Profile</Button></li>
-                            <li><Button className='text-lg font-semibold cursor-pointer' variant="ghost">My Booking</Button></li>
+                            {/* <li><Button className='text-lg font-semibold cursor-pointer' variant="ghost">Profile</Button></li> */}
+                            <li><Link href={'/my-booking'} className='text-lg font-semibold cursor-pointer' variant="ghost">My Booking</Link></li>
                             <li><LogoutLink><Button className='text-lg font-semibold cursor-pointer' variant="ghost">Log out</Button></LogoutLink></li>
                         </ul>
                     </PopoverContent>

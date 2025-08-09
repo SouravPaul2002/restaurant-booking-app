@@ -23,10 +23,19 @@ const getRestaurantBySlug=(slug)=>axiosClient.get(`/restaurants?filters[slug][$e
 
 const getMenuItemsByCuisine = (query) =>axiosClient.get(`/menu-items?${query}&populate=*`);
 
+const seatBooking = (data) =>axiosClient.post(`/seat-reservations`,data);
+
+const getBookingInfoList = (userEmail) =>axiosClient.get(`/seat-reservations?filters[UserEmail][$eq]=${userEmail}&populate[restaurant][populate]=Image`);
+
+const DeleteBooking = (documentId) => axiosClient.delete(`/seat-reservations/${documentId}`);
+
 export default{
     getCategory,
     getRestaurantList,
     getRestaurantByCategory,
     getRestaurantBySlug,
-    getMenuItemsByCuisine
+    getMenuItemsByCuisine,
+    seatBooking,
+    getBookingInfoList,
+    DeleteBooking
 }

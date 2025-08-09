@@ -5,7 +5,7 @@ import CategoryList from './_components/CategoryList'
 function layout({children}) {
   return (
     <div className='grid grid-cols-4'>
-      <div className="hidden md:block">
+      <div className=" md:block">
         {/* restaurant name  */}
         <CategoryList/>
       </div>

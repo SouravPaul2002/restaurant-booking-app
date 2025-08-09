@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button'
 import { Mail, MapPin, MessageCircleHeart, PhoneCall, Star } from 'lucide-react'
 import Image from 'next/image'
 import React from 'react'
+import BookRestaurant from './BookRestaurant'
 
 function RestaurantDetails({ restaurant, menuItem }) {
 
@@ -35,31 +36,34 @@ function RestaurantDetails({ restaurant, menuItem }) {
                         <h2 className='flex text-center items-center gap-0.5 text-gray-500 font-semibold'><PhoneCall className='w-4 h-4 stroke-red-500' /> +91{restaurant.Phone}</h2>
                         <h2 className='flex text-center items-center gap-0.5 text-gray-500 font-semibold'><Mail className='w-4 h-4 stroke-red-500' />{restaurant.Email}</h2>
                     </div>
-                    <Button className='bg-primary-color border-1 border-primary-color hover:bg-white hover:text-primary-color'>Book Now</Button>
+                    <BookRestaurant restaurant={restaurant}/>
                 </div>
             </div>
-            <div className=' border-1 px-2 border-slate-200 rounded-lg overflow-y-auto max-h-190 hide-scrollbar'> {/* it will store the menu items of the restaurant*/}
-                <h2 className='text-2xl text-gray-600 font-bold'>Menu</h2>
-                <div>
-                    {menuItem && menuItem.length > 0 ? (
-                        menuItem.map((item, idx) => (
-                            <div className='flex gap-2 m-2  p-4 border-1 bg-slate-200 rounded-lg' key={idx}>
-                                <div>{item.Image && item.Image.length > 0 && (<Image className='rounded-lg' src={item.Image[0].url} width={250} height={200} alt='item-image' />)}
+            <div>
+                <h2 className='text-3xl text-gray-600 font-bold pb-4'>Menu</h2>
+                <div className=' border-1 px-2 border-slate-300 rounded-lg overflow-y-auto max-h-190 hide-scrollbar'> {/* it will store the menu items of the restaurant*/}
+                    
+                    <div>
+                        {menuItem && menuItem.length > 0 ? (
+                            menuItem.map((item, idx) => (
+                                <div className='flex gap-2 m-2  p-4 border-1 bg-slate-200 rounded-lg' key={idx}>
+                                    <div>{item.Image && item.Image.length > 0 && (<Image className='rounded-lg' src={item.Image[0].url} width={250} height={200} alt='item-image' />)}
+                                    </div>
+                                    <div className='flex flex-col gap-1'>
+                                        <h2 className='text-2xl font-bold text-gray-800'>{item.Name}</h2>
+                                        <h2 className=' text-sm  text-primary-color font-semibold'>{item.CuisineType}</h2>
+                                        <h2 className='text-sm font-semibold text-gray-600'>₹{item.Price}</h2>
+                                        <h2 className='text-sm text-gray-500 tracking-wider'>{item.Description}</h2>
+                                    </div>
                                 </div>
-                                <div className='flex flex-col gap-1'>
-                                    <h2 className='text-2xl font-bold text-gray-800'>{item.Name}</h2>
-                                    <h2 className=' text-sm  text-primary-color font-semibold'>{item.CuisineType}</h2>
-                                    <h2 className='text-sm font-semibold text-gray-600'>₹{item.Price}</h2>
-                                    <h2 className='text-sm text-gray-500 tracking-wider'>{item.Description}</h2>
-                                </div>
-                            </div>
-                        ))
-                    )
-                        :
-                        (<div>
-                            No menu
-                        </div>)
-                    }
+                            ))
+                        )
+                            :
+                            (<div>
+                                No menu
+                            </div>)
+                        }
+                    </div>
                 </div>
             </div>
         </div>

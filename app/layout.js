@@ -2,11 +2,12 @@ import { Outfit } from "next/font/google";
 import "./globals.css";
 import Header from "./_components/Header";
 import Footer from "./_components/Footer";
+import { Toaster } from "sonner";
 
 const outfit = Outfit({subsets: ["latin"]});
 
 export const metadata = {
-  title: "Restaurant Booking App | 24x7",
+  title: "Restaurant Booking App",
   description: "A web app for booking restaurant online",
 };
 
@@ -20,6 +21,7 @@ export default function RootLayout({ children }) {
           <Header/>
           {children}
         </div>
+        <Toaster position="top-center" richColors />
         <Footer/>
       </body>
     </html>
