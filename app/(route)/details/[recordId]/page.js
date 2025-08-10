@@ -1,13 +1,13 @@
 "use client"
 import GlobalApi from '@/app/_utils/GlobalApi'
-import React, { use, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import RestaurantDetails from '../_components/RestaurantDetails';
 import RestaurantSuggestion from '../_components/RestaurantSuggestion';
 
-function details({ params }) {
+function Details({ params }) {
 
-  const unWrappedParams = use(params);
-  const recordId = unWrappedParams.recordId;
+  const recordId = params.recordId;
+  
 
   const [restaurant, setrestaurant] = useState(); // to save the fetched restaurant details from url
   const [menuItem, setmenuItem] = useState();
@@ -62,4 +62,4 @@ function details({ params }) {
   )
 }
 
-export default details
+export default Details
