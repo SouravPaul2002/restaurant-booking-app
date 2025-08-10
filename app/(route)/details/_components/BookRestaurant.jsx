@@ -16,6 +16,7 @@ import { useKindeBrowserClient } from '@kinde-oss/kinde-auth-nextjs';
 import GlobalApi from '@/app/_utils/GlobalApi';
 import { toast } from "sonner";
 import axios from "axios";
+import moment from 'moment';
 function BookRestaurant({ restaurant }) {
 
     const [date, setDate] = useState(new Date());
@@ -60,6 +61,8 @@ function BookRestaurant({ restaurant }) {
     }
 
 
+    const formattedTime= moment(selectedTime,"HH:mm").format("hh:mm A");
+    const formattedDate= moment(date).format("DD-MMM-YYYY");
     const [headCount, setheadCount] = useState('');
     const [phoneNumber, setphoneNumber] = useState('');
     // const [errors,seterrors]=useState({});
@@ -122,8 +125,8 @@ Reservation Details:
 - Restaurant Name: ${restaurant.Name}
 - Address:  ${restaurant.Address}, ${restaurant.City}
 - Contact: ${restaurant.Phone}
-- Date: ${date}
-- Time: ${selectedTime}
+- Date: ${formattedDate}
+- Time: ${formattedTime}
 - Number of Guests: ${headCount}
 
 Please arrive at least 10 minutes before your reserved time. If you wish to make any changes or cancel your reservation, contact us at ${restaurant.Phone}.
@@ -195,7 +198,6 @@ ${restaurant.Name} Team
                             <div className='flex gap-2'>
                                 <Button hidden={!(date && selectedTime && headCount > 0 && headCount <= 10 && phoneNumber.length == 10)} className='bg-primary-color hover:bg-blue-500' type="submit"
                                     onClick={async () => {
-                                        await sendEmail();
                                         bookingInfo();
                                     }}
                                 >Confirm</Button>

@@ -1,6 +1,30 @@
+"use client"
 import React from 'react'
 
 function Footer() {
+    const [result, setResult] = React.useState("");
+    const onSubmit = async (event) => {
+        event.preventDefault();
+        setResult("Sending....");
+        const formData = new FormData(event.target);
+
+        formData.append("access_key", "820b2ffa-3ddc-401d-941c-7d2568c8ee85");
+
+        const response = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            body: formData
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+            setResult("Form Submitted Successfully");
+            event.target.reset();
+        } else {
+            console.log("Error", data);
+            setResult(data.message);
+        }
+    };
     return (
         <div>
             <footer className="bg-white">
@@ -122,27 +146,24 @@ function Footer() {
                         <div className="text-center sm:text-left md:col-span-4 lg:col-span-2">
                             <p className="text-lg font-medium text-gray-900">Stay in Touch</p>
 
-                            <div className="mx-auto mt-8 max-w-md sm:ms-0">
-                                <p className="text-center leading-relaxed text-gray-500 ltr:sm:text-left rtl:sm:text-right">
-                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Earum id, iure consectetur et
-                                    error hic!
-                                </p>
+                            <div className="mx-auto mt-8 max-w-full sm:ms-0">
 
-                                <form className="mt-4">
+
+                                <form onSubmit={onSubmit} className="mt-4">
                                     <div className="flex flex-col gap-4 sm:flex-row lg:flex-col lg:items-start">
-                                        <label htmlFor="email" className="sr-only">Email</label>
 
+                                        <input type="text" name="name" placeholder="Your name" className="contact-inputs p-2 m-2" required></input>
                                         <input
                                             className="w-full rounded-full border-gray-200 px-6 py-3 shadow-xs"
                                             type="email"
                                             placeholder="Enter your email"
                                         />
-
+                                        <textarea name="message" placeholder="Your message" className="contact-inputs p-2 w-full h-full" required></textarea>
                                         <button
-                                            className="block rounded-full bg-indigo-500 px-8 py-3 font-medium text-white transition hover:bg-indigo-600"
+                                            className="m-2 block rounded-full bg-indigo-500 px-8 py-3 font-medium text-white transition hover:bg-indigo-600"
                                             type="submit"
                                         >
-                                            Subscribe
+                                            Submit
                                         </button>
                                     </div>
                                 </form>
