@@ -26,7 +26,7 @@ function BookingList({ bookingInfo, previous, updateRecord }) {
       <div className='flex flex-col sm:flex-row sm:flex-nowrap flex-wrap gap-2 sm:gap-4 p-4 m-4 items-center sm:items-start border-1 border-gray-300 rounded-lg' key={index}>
           <div>
             <Image
-              src={item.restaurant.Image.url}
+              src={GlobalApi.getStrapiMedia(item.restaurant.Image.url)}
               width={90}
               height={90}
               alt='restaurant-image'

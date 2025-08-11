@@ -2,6 +2,7 @@ import Image from 'next/image';
 import React from 'react';
 import { Star } from 'lucide-react';
 import Link from 'next/link';
+import GlobalApi from '@/app/_utils/GlobalApi';
 
 function RestaurantList({ restaurantList, heading = "Suggestions" }) {
     return (
@@ -13,7 +14,7 @@ function RestaurantList({ restaurantList, heading = "Suggestions" }) {
                         <div className='flex gap-2  rounded-lg p-4 px-10 hover:bg-slate-300 transition-all ease-in-out duration-200'>
                             <div>
                                 <Image
-                                    src={restaurant.Image?.url}
+                                    src={GlobalApi.getStrapiMedia(restaurant.Image?.url)}
                                     alt="restaurant"
                                     width={60}
                                     height={60}

@@ -2,6 +2,7 @@ import Image from 'next/image';
 import React from 'react';
 import { Star } from 'lucide-react';
 import Link from 'next/link';
+import GlobalApi from '../_utils/GlobalApi';
 
 function RestaurantList({ restaurantList, heading = "Popular Restaurants" }) {
   return (
@@ -11,7 +12,7 @@ function RestaurantList({ restaurantList, heading = "Popular Restaurants" }) {
         {restaurantList && restaurantList.map((restaurant, index) => (
           <div key={index} className='flex flex-wrap gap-4 border-[2px] border-gray-300 border-s-background rounded-3xl p-3 hover:scale-105 transition-all ease-in-out duration-400'>
             <Image
-              src={restaurant.Image?.url}
+              src={GlobalApi.getStrapiMedia(restaurant.Image?.url)}
               alt="restaurant"
               width={400}
               height={200}

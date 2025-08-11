@@ -3,6 +3,7 @@ import { Mail, MapPin, MessageCircleHeart, PhoneCall, Star } from 'lucide-react'
 import Image from 'next/image'
 import React from 'react'
 import BookRestaurant from './BookRestaurant'
+import GlobalApi from '@/app/_utils/GlobalApi'
 
 function RestaurantDetails({ restaurant, menuItem }) {
 
@@ -14,7 +15,7 @@ function RestaurantDetails({ restaurant, menuItem }) {
             <div className='flex flex-col gap- border-1 border-slate-300 p-4 rounded-lg'> {/*to hold the image and details of the restaurant only  */}
                 {/* restaurant image  */}
                 <div>
-                    <Image width={400} height={300} className='rounded-sm md:w-full h-auto' src={restaurant.Image?.url} alt='restaurant image' />
+                    <Image width={400} height={300} className='rounded-sm md:w-full h-auto' src={GlobalApi.getStrapiMedia(restaurant.Image?.url)} alt='restaurant image' />
                 </div>
                 {/* restaurant info  */}
                 <div className='flex flex-col gap-2 md:w-full  md:h-auto'>
@@ -47,7 +48,7 @@ function RestaurantDetails({ restaurant, menuItem }) {
                         {menuItem && menuItem.length > 0 ? (
                             menuItem.map((item, idx) => (
                                 <div className='flex gap-2 m-2  p-4 border-1 bg-slate-200 rounded-lg' key={idx}>
-                                    <div>{item.Image && item.Image.length > 0 && (<Image className='rounded-lg' src={item.Image[0].url} width={250} height={200} alt='item-image' />)}
+                                    <div>{item.Image && item.Image.length > 0 && (<Image className='rounded-lg' src={GlobalApi.getStrapiMedia(item.Image[0].url)} width={250} height={200} alt='item-image' />)}
                                     </div>
                                     <div className='flex flex-col gap-1'>
                                         <h2 className='text-2xl font-bold text-gray-800'>{item.Name}</h2>
