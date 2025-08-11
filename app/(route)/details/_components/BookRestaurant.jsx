@@ -115,7 +115,7 @@ function BookRestaurant({ restaurant }) {
 
     //for mail
     function sendEmail() {
-        axios.post("http://localhost:1337/api/send-email", {
+        axios.post("https://restaurant-booking-app-strapi.onrender.com/api/send-email", {
             to: user.email,
             subject: `Your Seat Reservation Confirmation – [${restaurant.Name}]`,
             message: `<pre> Hello ${user.given_name + " " + user.family_name}, Your reservation has been successfully confirmed.
