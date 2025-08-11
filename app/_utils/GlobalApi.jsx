@@ -29,6 +29,13 @@ const getBookingInfoList = (userEmail) =>axiosClient.get(`/seat-reservations?fil
 
 const DeleteBooking = (documentId) => axiosClient.delete(`/seat-reservations/${documentId}`);
 
+export const getStrapiMedia = (url) => {
+  if (!url) return null;
+  return url.startsWith('http')
+    ? url
+    : `https://restaurant-booking-app-strapi.onrender.com${url}`;
+};
+
 export default{
     getCategory,
     getRestaurantList,
@@ -37,5 +44,6 @@ export default{
     getMenuItemsByCuisine,
     seatBooking,
     getBookingInfoList,
-    DeleteBooking
+    DeleteBooking,
+    getStrapiMedia
 }
